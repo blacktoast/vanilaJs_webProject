@@ -1,10 +1,15 @@
 import Items from "./src/Components/items.js";
 
-class App {
+export default class App extends HTMLElement {
   constructor() {
-    const $app = document.querySelector("#app");
-    new Items($app);
+    super();
+    this.innerHTML = this.template();
+  }
+  template() {
+    return `<test-modal>`;
   }
 }
+customElements.define("main-app", App);
 
-new App();
+let main = document.querySelector("#app");
+main.innerHTML = `<main-app>x`;

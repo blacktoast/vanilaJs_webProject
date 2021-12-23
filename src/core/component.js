@@ -1,7 +1,8 @@
-export default class Component {
+export default class Component extends HTMLElement {
   $target;
   $state;
   constructor($target) {
+    super();
     this.$target = $target;
     this.setup();
     this.render();
@@ -11,11 +12,11 @@ export default class Component {
     return "";
   }
   render() {
-    this.$target.innerHTML = this.template();
-    this.setEvent();
+    this.innerHTML = this.template();
   }
   setEvent() {}
   setState(newState) {
+    console.log(newState);
     this.$state = { ...this.$state, ...newState };
     this.render();
   }
