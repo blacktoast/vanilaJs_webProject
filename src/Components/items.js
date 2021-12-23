@@ -1,7 +1,5 @@
 import Component from "../core/component.js";
 
-class ComElement {}
-
 export default class Items extends Component {
   $state;
   constructor() {
@@ -33,4 +31,4 @@ export default class Items extends Component {
   }
 }
 
-customElements.define("test-modal", Items);
+customElements.define("item-list", Items);

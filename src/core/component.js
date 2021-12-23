@@ -1,9 +1,8 @@
 export default class Component extends HTMLElement {
   $target;
   $state;
-  constructor($target) {
+  constructor() {
     super();
-    this.$target = $target;
     this.setup();
     this.render();
   }

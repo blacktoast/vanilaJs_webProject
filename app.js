@@ -6,10 +6,10 @@ export default class App extends HTMLElement {
     this.innerHTML = this.template();
   }
   template() {
-    return `<test-modal>`;
+    return `<item-list>`;
   }
 }
 customElements.define("main-app", App);
 
 let main = document.querySelector("#app");
-main.innerHTML = `<main-app>x`;
+main.innerHTML = `<main-app>`;
