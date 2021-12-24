@@ -4,6 +4,7 @@ export default class Component extends HTMLElement {
   constructor() {
     super();
     this.setup();
+    this.setEvent();
     this.render();
   }
   setup() {}
@@ -12,6 +13,9 @@ export default class Component extends HTMLElement {
   }
   render() {
     this.innerHTML = this.template();
+  }
+  renderAdd(position, html) {
+    this.insertAdjacentHTML(position, html);
   }
   setEvent() {}
   setState(newState) {

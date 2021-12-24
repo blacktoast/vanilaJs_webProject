@@ -1,12 +1,32 @@
 import Items from "./src/Components/items.js";
+import Component from "./src/core/component.js";
 
-export default class App extends HTMLElement {
+export default class App extends Component {
   constructor() {
     super();
-    this.innerHTML = this.template();
   }
+
+  setup() {
+    this.$state = { num: [0, 2, 3, 4] };
+  }
+
   template() {
-    return `<item-list>`;
+    let { num } = this.$state;
+    return `
+    <test-list></test-list>
+    <h1>dts</h1>
+    <h1>st</h1>
+${[...Array(num.length)].map((e, i) => `<item-list></item-list>`).join("")}
+  <button class="list-add">list add</button>
+      `;
+  }
+  setEvent() {
+    this.addEventListener("click", ({ target }) => {
+      if (target.classList.contains("list-add")) {
+        const { num } = this.$state;
+        this.setState({ num: [...num, 0] });
+      }
+    });
   }
 }
 customElements.define("main-app", App);
