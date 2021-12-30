@@ -7,7 +7,7 @@ export default class App extends Component {
   }
 
   setup() {
-    this.$state = { num: 1 };
+    this.$state = { num: 2 };
   }
 
   reRender() {
@@ -20,7 +20,7 @@ export default class App extends Component {
     console.log(num);
     return `
     <test-list></test-list>
-    <h1>dts</h1>
+    <h1>hi</h1>
 ${[...Array(num)].map(() => `<item-list></item-list>`).join("")}
   <button class="list-add">list add</button>
       `;
