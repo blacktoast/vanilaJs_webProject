@@ -7,7 +7,7 @@ export default class App extends Component {
   }
 
   setup() {
-    this.$state = { num: 2 };
+    this.$state = { num: 1 };
   }
 
   reRender() {

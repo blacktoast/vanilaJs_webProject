@@ -30,6 +30,9 @@ export default class Component extends HTMLElement {
       callback(event);
     });
   }
+
+
+  
   reRender() {}
   setEvent() {}
   setState(newState) {
