@@ -7,16 +7,21 @@ export default class App extends Component {
   }
 
   setup() {
-    this.$state = { num: [0, 2, 3, 4] };
+    this.$state = { num: 1 };
   }
 
+  reRender() {
+    document
+      .querySelector("main-app")
+      .insertAdjacentHTML("beforeend", "<item-list></item-list>");
+  }
   template() {
     let { num } = this.$state;
+    console.log(num);
     return `
     <test-list></test-list>
     <h1>dts</h1>
-    <h1>st</h1>
-${[...Array(num.length)].map((e, i) => `<item-list></item-list>`).join("")}
+${[...Array(num)].map(() => `<item-list></item-list>`).join("")}
   <button class="list-add">list add</button>
       `;
   }
@@ -24,7 +29,7 @@ ${[...Array(num.length)].map((e, i) => `<item-list></item-list>`).join("")}
     this.addEventListener("click", ({ target }) => {
       if (target.classList.contains("list-add")) {
         const { num } = this.$state;
-        this.setState({ num: [...num, 0] });
+        this.setState({ num: num + 1 });
       }
     });
   }

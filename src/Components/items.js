@@ -11,6 +11,9 @@ export default class Items extends Component {
   setup() {
     this.$state = { items: ["item1", "item2"] };
   }
+  reRender() {
+    this.render();
+  }
   template() {
     const { items } = this.$state;
     return `
