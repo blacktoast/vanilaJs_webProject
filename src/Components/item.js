@@ -5,10 +5,9 @@ export default class Item extends Component {
   constructor() {
     super();
     console.log("item:  ", this);
-    this.innerHTML = this.template();
     console.log("con");
+    this.setProps();
   }
-
   setup() {
     console.log("item-setup ", this.$props);
     this.$props = {
