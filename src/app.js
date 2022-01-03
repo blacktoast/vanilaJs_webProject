@@ -20,7 +20,6 @@ export default class App extends Component {
     let { num } = this.$state;
     console.log(num);
     return `
-    <test-list></test-list>
     <h1>hi</h1>
 ${[...Array(num)].map(() => `<item-list></item-list>`).join("")}
   <button class="list-add">list add</button>

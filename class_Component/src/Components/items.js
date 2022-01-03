@@ -1,18 +1,8 @@
 import Component from "../core/component.js";
 
 export default class Items extends Component {
-  $state;
-  constructor() {
-    super();
-    this.setup();
-    this.innerHTML = this.template();
-    console.log("con");
-  }
   setup() {
     this.$state = { items: ["item1", "item2"] };
-  }
-  reRender() {
-    this.render();
   }
   template() {
     const { items } = this.$state;
@@ -20,15 +10,15 @@ export default class Items extends Component {
       <ul>
         ${items.map((item) => `<li>${item}</li>`).join("")}
       </ul>
-      <button>추가</button>
+      <button class="addBtn">추가</button>
     `;
   }
+
   setEvent() {
-    this.addEventListener("click", () => {
+    // 모든 이벤트를 this.$target에 등록하여 사용하면 된다.
+    this.addEvent("click", ".addBtn", ({ target }) => {
       const { items } = this.$state;
       this.setState({ items: [...items, `item${items.length + 1}`] });
     });
   }
 }
-
-customElements.define("item-list", Items);

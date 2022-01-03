@@ -1,4 +1,5 @@
 import Component from "../core/component.js";
+import Item from "./item.js";
 
 export default class Items extends Component {
   $state;
@@ -18,7 +19,9 @@ export default class Items extends Component {
     const { items } = this.$state;
     return `
       <ul>
-        ${items.map((item) => `<li>${item}</li>`).join("")}
+        ${items
+          .map((item) => `<item-item item="${item}">${item}</item-item>`)
+          .join("")}
       </ul>
       <button>추가</button>
     `;

@@ -8,7 +8,10 @@ export default class Component extends HTMLElement {
     this.setEvent();
     this.render();
   }
-
+  connectedCallback() {
+    console.log(this);
+    this.setProps();
+  }
   setup() {}
   template(props = null) {
     return "";
