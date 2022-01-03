@@ -1,14 +1,15 @@
-import Items from "./src/Components/items.js";
-import Component from "./src/core/component.js";
+import Items from "./Components/items.js";
+import Component from "./core/component.js";
 
 export default class App extends Component {
   constructor() {
     super();
   }
-
+  test() {}
   setup() {
     this.$state = { num: 1 };
   }
+  static get observedAttributes() {}
 
   reRender() {
     document

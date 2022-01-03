@@ -8,6 +8,7 @@ export default class Component extends HTMLElement {
     this.setEvent();
     this.render();
   }
+
   setup() {}
   template(props = null) {
     return "";
@@ -31,8 +32,6 @@ export default class Component extends HTMLElement {
     });
   }
 
-
-  
   reRender() {}
   setEvent() {}
   setState(newState) {
