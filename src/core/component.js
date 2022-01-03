@@ -7,11 +7,10 @@ export default class Component extends HTMLElement {
     this.setup();
     this.setEvent();
     this.render();
-  }
-  connectedCallback() {
-    console.log(this);
     this.setProps();
+    console.log("생성자 ", this);
   }
+  connectedCallback() {}
   setup() {}
   template(props = null) {
     return "";
@@ -19,9 +18,16 @@ export default class Component extends HTMLElement {
   render() {
     this.innerHTML = this.template(this.$props);
   }
-  setProps(newProps) {
-    this.$props = newProps;
-    this.render();
+
+  setProps() {
+    console.log(
+      [...this.attributes].map((e) => {
+        let newProps = { [e.name]: e.value };
+        this.$props = { ...this.$props, ...newProps };
+      })
+    );
+    console.log(this.$props);
+    //  this.render();
   }
   addEvent(eventType, selector, callback) {
     const children = [...this.querySelectorAll(selector)];
@@ -41,6 +47,6 @@ export default class Component extends HTMLElement {
     console.log(newState);
     console.log({ ...newState });
     this.$state = { ...this.$state, ...newState };
-    this.reRender();
+    this.render();
   }
 }

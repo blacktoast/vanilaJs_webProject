@@ -2,25 +2,20 @@ import Component from "../core/component.js";
 import Item from "./item.js";
 
 export default class Items extends Component {
-  $state;
   constructor() {
     super();
-    this.setup();
-    this.innerHTML = this.template();
     console.log("con");
   }
   setup() {
     this.$state = { items: ["item1", "item2"] };
   }
-  reRender() {
-    this.render();
-  }
+
   template() {
     const { items } = this.$state;
     return `
       <ul>
         ${items
-          .map((item) => `<item-item item="${item}">${item}</item-item>`)
+          .map((item) => `<item-item item="${item}" name="test"></item-item>`)
           .join("")}
       </ul>
       <button>추가</button>
@@ -28,6 +23,7 @@ export default class Items extends Component {
   }
   setEvent() {
     this.addEventListener("click", () => {
+      console.log(this);
       const { items } = this.$state;
       this.setState({ items: [...items, `item${items.length + 1}`] });
     });

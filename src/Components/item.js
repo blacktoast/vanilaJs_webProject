@@ -4,22 +4,21 @@ export default class Item extends Component {
   $state;
   constructor() {
     super();
-    this.setup();
     console.log("item:  ", this);
     this.innerHTML = this.template();
     console.log("con");
   }
-  static get observedAttributes() {
-    // 모니터링 할 속성 이름
-    return ["item"];
+
+  setup() {
+    console.log("item-setup ", this.$props);
+    this.$props = {
+      item: "",
+    };
   }
-  attributeChangedCallback(name, oldValue, newValue) {
-    this.$props = { [name]: newValue };
-  }
-  setup() {}
   template() {
+    console.log("template  ", this.$props);
     return `
-     <li>${this.$props}</li>
+     <li>${this.$props.item}</li>
     `;
   }
 }

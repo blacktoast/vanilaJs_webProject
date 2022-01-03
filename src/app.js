@@ -11,18 +11,13 @@ export default class App extends Component {
   }
   static get observedAttributes() {}
 
-  reRender() {
-    document
-      .querySelector("main-app")
-      .insertAdjacentHTML("beforeend", "<item-list></item-list>");
-  }
   template() {
     let { num } = this.$state;
     console.log(num);
     return `
     <h1>hi</h1>
-${[...Array(num)].map(() => `<item-list></item-list>`).join("")}
-  <button class="list-add">list add</button>
+<item-list></item-list>
+    <button class="list-add">list add</button>
       `;
   }
   setEvent() {
