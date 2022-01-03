@@ -7,8 +7,7 @@ export default class Component extends HTMLElement {
     this.setup();
     this.setEvent();
     this.render();
-    this.setProps();
-    console.log("생성자 ", this);
+    //  this.setProps();
   }
   connectedCallback() {}
   setup() {}
@@ -16,7 +15,7 @@ export default class Component extends HTMLElement {
     return "";
   }
   render() {
-    this.innerHTML = this.template(this.$props);
+    this.innerHTML = this.template();
   }
 
   setProps() {
@@ -27,7 +26,7 @@ export default class Component extends HTMLElement {
       })
     );
     console.log(this.$props);
-    //  this.render();
+    this.render();
   }
   addEvent(eventType, selector, callback) {
     const children = [...this.querySelectorAll(selector)];
